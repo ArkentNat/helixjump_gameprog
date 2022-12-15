@@ -9,7 +9,6 @@ public class CameraFactory
         var camera = GameObject.Instantiate(PrefabResolverUtility.CameraPrefab, position, Quaternion.identity);
 
         var cameraComponent = camera.AddComponent<CameraComponent>();
-        Debug.Log(cameraComponent.tag);
 
         return cameraComponent;
 

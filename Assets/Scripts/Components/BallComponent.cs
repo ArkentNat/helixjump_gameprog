@@ -38,7 +38,7 @@ public class BallComponent : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log("Ball collided with something");
+        //Debug.Log("Ball collided with something");
         //this.BallCollisionSubject.OnNext(Unit.Default);
         
         rigidBody.velocity = Vector3.zero;

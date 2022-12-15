@@ -7,14 +7,17 @@ public class PrefabResolverUtility : MonoBehaviour
 {
     [SerializeField] private GameObject ballPrefab;
     [SerializeField] private GameObject cameraPrefab;
+    [SerializeField] private GameObject helixPrefab;
 
     private static GameObject ballPrefabStatic;
     private static GameObject cameraPrefabStatic;
+    private static GameObject helixPrefabStatic;
 
     private void Awake()
     {
         PrefabResolverUtility.ballPrefabStatic = ballPrefab;
         PrefabResolverUtility.cameraPrefabStatic = cameraPrefab;
+        PrefabResolverUtility.helixPrefabStatic = helixPrefab;
     }
 
     public static GameObject BallPrefab
@@ -30,6 +33,14 @@ public class PrefabResolverUtility : MonoBehaviour
         get
         {
             return PrefabResolverUtility.cameraPrefabStatic;
+        }
+    }
+    
+    public static GameObject HelixPrefab
+    {
+        get
+        {
+            return PrefabResolverUtility.helixPrefabStatic;
         }
     }
 }

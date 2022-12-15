@@ -10,8 +10,9 @@ public class CameraComponent : MonoBehaviour
 
     private float offset;
 
-    private void Awake()
+    private void Start()
     {
+        Debug.Log(target.tag);
         offset = transform.position.y - target.transform.position.y;
     }
 

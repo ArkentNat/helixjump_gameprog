@@ -7,7 +7,7 @@ using UniRx;
 public class BallComponent : MonoBehaviour
 {
     private Rigidbody rigidBody;
-    [SerializeField] private float ballImpulseStrength = 1.8f;
+    [SerializeField] private float ballImpulseStrength = 2.8f;
     
     private Subject<Unit> BallCollisionSubject;
 

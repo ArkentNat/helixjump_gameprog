@@ -14,7 +14,8 @@ public class LevelManager : MonoBehaviour
         var cameraFactory = new CameraFactory();
 
         this.ballComponent = ballFactory.SpawnBall(new Vector3(0, 17, 1));
-        this.cameraComponent = cameraFactory.SpawnCamera(new Vector3(0, 17, 3));
+        this.cameraComponent = cameraFactory.SpawnCamera(new Vector3(0, 19, 4));
+        this.cameraComponent.transform.Rotate(30,-180,0);
         
         this.cameraComponent.addBallTarget(this.ballComponent);
     }

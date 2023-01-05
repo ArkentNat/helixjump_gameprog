@@ -360,6 +360,7 @@ MonoBehaviour:
   best: 0
   score: 0
   currentStage: 0
+  GameOverScreen: {fileID: 0}
 --- !u!4 &1947455933
 Transform:
   m_ObjectHideFlags: 0

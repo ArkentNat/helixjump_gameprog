@@ -52,15 +52,16 @@ public class BallComponent : MonoBehaviour
         if(ignoreNextCollision)
             return; 
 
-        if(isSuperSpeedActive)
+        if(isSuperSpeedActive) {
             if(!other.transform.GetComponent<Goal>()) {
                 Destroy(other.transform.parent.gameObject);
                 Debug.Log("Destroying Platform");
-            } else {
-                DeathPart deathPart = other.transform.GetComponent<DeathPart>();
-                if(deathPart)
-                    deathPart.HitDeathPart();
             }
+        } else {
+            DeathPart deathPart = other.transform.GetComponent<DeathPart>();
+            if(deathPart)
+                deathPart.HitDeathPart();
+        }
 
         rigidBody.velocity = Vector3.zero;
         rigidBody.AddForce(Vector3.up * ballImpulseStrength, ForceMode.Impulse);

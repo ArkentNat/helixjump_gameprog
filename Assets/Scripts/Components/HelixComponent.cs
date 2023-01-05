@@ -15,9 +15,9 @@ public class HelixComponent : MonoBehaviour
     public Transform goalTransform;
     public GameObject helixLevelPrefab;
 
-    public List<Stage> allStages = new List<Stage>();
     private float helixDistance;
     private List<GameObject> spawnedLevels = new List<GameObject>();
+    public List<Stage> allStages = new List<Stage>();
 
 
     private void Awake()
@@ -58,10 +58,12 @@ public class HelixComponent : MonoBehaviour
 
     public void LoadStage(int stageNumber) {
         Debug.Log("StageNumber: " + stageNumber);
-        //Debug Line 61
+        Debug.Log("All Stages: " + allStages.Count);
+
+        //Debug Line 62 - Video 2:56:00
+        //All Stages not read
         Stage stage = allStages[Mathf.Clamp(stageNumber, 0, allStages.Count - 1)];
         Debug.Log("Stages: " + stage);
-        Debug.Log("All Stages: " + allStages.Count);
         if (stage == null) {
             Debug.LogError("No stage " + stageNumber + " found in allStages List. Are all stages assigned in the list?");
             return;
@@ -87,7 +89,6 @@ public class HelixComponent : MonoBehaviour
         Debug.Log("Helix Distance: " + helixDistance);
         Debug.Log("Stage Levels Count: " + stage.levels.Count);
 
-        //Still need debugging
         for (int i = 0; i < stage.levels.Count; i++) {
             spawnPosY -= levelDistance;
             GameObject level = Instantiate(helixLevelPrefab, transform);

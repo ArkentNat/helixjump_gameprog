@@ -23,6 +23,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void NextLevel(){
+        currentStage++;
+        Debug.Log("Current Stage: " + currentStage);
+        FindObjectOfType<BallComponent>().ResetBall();
+        FindObjectOfType<HelixComponent>().LoadStage(currentStage);
         Debug.Log("Next Level Called");
     }
 
@@ -30,6 +34,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         singleton.score = 0;
         FindObjectOfType<BallComponent>().ResetBall();
+        FindObjectOfType<HelixComponent>().LoadStage(currentStage);
     }
 
 

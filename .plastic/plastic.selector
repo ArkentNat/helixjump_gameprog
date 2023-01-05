@@ -1,4 +1,0 @@
-repository "HelixJump@GameProgProject@cloud"
-  path "/"
-    br "/main"
-    co "/main"

@@ -50,6 +50,8 @@ public class BallComponent : MonoBehaviour
 
         ignoreNextCollision = true;
         Invoke("AllowCollision", .2f);
+        
+        this.BallCollisionSubject.OnNext(Unit.Default);
     }
 
     private void AllowCollision()

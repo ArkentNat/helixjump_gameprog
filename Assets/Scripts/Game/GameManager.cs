@@ -24,18 +24,29 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel(){
 
+        Debug.Log("Next Level Called");
     }
 
     public void RestartLevel(){
+        Debug.Log("Game Over");
+        singleton.score = 0;
+        FindObjectOfType<BallComponent>().ResetBall();
+
 
     }
+
+
 
     public void AddScore (int scoreToAdd) {
         score += scoreToAdd;
 
+
         if(score > best) {
             best = score;
             PlayerPrefs.SetInt("Highscore", score);
+        }
+    }
+
         }
     }
 
@@ -48,4 +59,5 @@ public class GameManager : MonoBehaviour
     {
         return best;
     }
+
 }

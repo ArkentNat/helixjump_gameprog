@@ -50,9 +50,9 @@ public class BallComponent : MonoBehaviour
         if(ignoreNextCollision)
             return; 
 
-        DeathPart deathPart = other.transform.GetComponent<DeathPart>();
-        if(deathPart)
-            deathPart.HitDeathPart();
+        //DeathPart deathPart = other.transform.GetComponent<DeathPart>();
+        //if(deathPart)
+            //deathPart.HitDeathPart();
         
         rigidBody.velocity = Vector3.zero;
         rigidBody.AddForce(Vector3.up * ballImpulseStrength, ForceMode.Impulse);

@@ -18,8 +18,8 @@ public class GameManager : MonoBehaviour
         } else if (singleton != this) {
             Destroy(gameObject);
         }
-        
-        best = PlayerPrefs.GetInt()
+
+        best = PlayerPrefs.GetInt("Highscore");
     }
 
     public void NextLevel(){

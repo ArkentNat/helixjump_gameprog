@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void NextLevel(){
-
         Debug.Log("Next Level Called");
     }
 
@@ -31,8 +30,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game Over");
         singleton.score = 0;
         FindObjectOfType<BallComponent>().ResetBall();
-
-
     }
 
 
@@ -44,9 +41,6 @@ public class GameManager : MonoBehaviour
         if(score > best) {
             best = score;
             PlayerPrefs.SetInt("Highscore", score);
-        }
-    }
-
         }
     }
 

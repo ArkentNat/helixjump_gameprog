@@ -359,6 +359,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1ed078891e15842823b089d652d663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  best: 0
+  score: 0
+  currentStage: 0
+  GameOverScreen: {fileID: 0}
+--- !u!4 &1947455933
   ballPhysicMaterial: {fileID: 13400000, guid: 82fba7d433a840f479769a4c2d3f44f4, type: 2}
 --- !u!4 &978211932
 Transform:

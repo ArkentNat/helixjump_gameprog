@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public int currentStage = 0;
 
+    public GameOverScreen GameOverScreen;
+
     public static GameManager singleton;
     // Start is called before the first frame update
     void Awake()
@@ -52,6 +54,11 @@ public class GameManager : MonoBehaviour
     public int GetHighScore()
     {
         return best;
+    }
+
+    public void GameOver()
+    {
+        GameOverScreen.Setup();
     }
 
 }

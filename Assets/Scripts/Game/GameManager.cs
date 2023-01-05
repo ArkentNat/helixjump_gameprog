@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void NextLevel(){
+
         Debug.Log("Next Level Called");
     }
 
@@ -31,16 +32,32 @@ public class GameManager : MonoBehaviour
         singleton.score = 0;
         FindObjectOfType<BallComponent>().ResetBall();
 
+
     }
+
+
 
     public void AddScore (int scoreToAdd) {
         score += scoreToAdd;
-        Debug.Log(score);
+
 
         if(score > best) {
             best = score;
             PlayerPrefs.SetInt("Highscore", score);
-            // Store highscore in Playerprefs
         }
     }
+
+        }
+    }
+
+    public int GetScore()
+    {
+        return score;
+    }
+
+    public int GetHighScore()
+    {
+        return best;
+    }
+
 }

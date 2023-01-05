@@ -63,6 +63,10 @@ public class BallComponent : MonoBehaviour
         //Dave F-07
         // GameManager.singleton.AddScore(1);
         // Debug.Log(GameManager.singleton.score);
+
+        
+        this.BallCollisionSubject.OnNext(Unit.Default);
+
     }
 
     private void AllowCollision()

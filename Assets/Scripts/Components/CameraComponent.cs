@@ -6,7 +6,8 @@ using UnityEngine;
 public class CameraComponent : MonoBehaviour
 {
 
-    public BallComponent target;
+     // make generic
+     public BallComponent target;
 
     private float offset;
 

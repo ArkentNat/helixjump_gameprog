@@ -221,7 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 8150316394777529870, guid: 675c9fd80b3d1d2418f9ec18b2fc9cc8, type: 3}
   cameraPrefab: {fileID: 8243645459782927913, guid: 76ab9a335cc89e84b8bde809636c19ff, type: 3}
-  helixPrefab: {fileID: 3923082449071491406, guid: 42a0a80d8121b5448a723e8194effd46, type: 3}
+  helixPrefab: {fileID: 5999888259074630696, guid: 55722476147018d48a2a22aaf96e891c, type: 3}
   scoreCounterPrefab: {fileID: 8420599999140554224, guid: 7585052fe11c5a6478872230f68539e9, type: 3}
 --- !u!4 &644746988
 Transform:
@@ -283,6 +283,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &841200181
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 841200183}
+  - component: {fileID: 841200182}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &841200182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841200181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe92c4bf355143c468428bd0765c5086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  best: 0
+  score: 0
+  currentStage: 0
+--- !u!4 &841200183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841200181}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &978211930
 GameObject:
   m_ObjectHideFlags: 0
@@ -312,6 +359,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1ed078891e15842823b089d652d663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  best: 0
+  score: 0
+  currentStage: 0
+  GameOverScreen: {fileID: 0}
+--- !u!4 &1947455933
   ballPhysicMaterial: {fileID: 13400000, guid: 82fba7d433a840f479769a4c2d3f44f4, type: 2}
 --- !u!4 &978211932
 Transform:
@@ -327,54 +379,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1947455931
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1947455933}
-  - component: {fileID: 1947455932}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1947455932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947455931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b7af62df7ed6446905b2e858456780, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  best: 0
-  score: 0
-  currentStage: 0
-  GameOverScreen: {fileID: 0}
---- !u!4 &1947455933
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947455931}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4970419, y: 13.069568, z: 0.32332483}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2145398018
 GameObject:

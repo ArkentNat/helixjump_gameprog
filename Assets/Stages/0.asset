@@ -23,16 +23,16 @@ MonoBehaviour:
   - partCount: 10
     deathPartCount: 2
   - partCount: 7
-    deathPartCount: 0
+    deathPartCount: 2
   - partCount: 9
-    deathPartCount: 0
-  - partCount: 7
-    deathPartCount: 0
+    deathPartCount: 2
+  - partCount: 6
+    deathPartCount: 1
+  - partCount: 5
+    deathPartCount: 2
+  - partCount: 5
+    deathPartCount: 2
+  - partCount: 5
+    deathPartCount: 3
   - partCount: 8
-    deathPartCount: 0
-  - partCount: 8
-    deathPartCount: 0
-  - partCount: 7
-    deathPartCount: 0
-  - partCount: 10
-    deathPartCount: 0
+    deathPartCount: 6

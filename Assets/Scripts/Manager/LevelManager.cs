@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
     private CameraComponent cameraComponent;
     private HelixComponent helixComponent;
     private ScoreCounterComponent scoreCounterComponent;
+    private GameOverScreen gameOverScreenComponent;
 
     private EventManager eventManager;
 
@@ -19,6 +20,7 @@ public class LevelManager : MonoBehaviour
         var cameraFactory = new CameraFactory();
         var helixFactory = new HelixFactory();
         var scoreCounterFactory = new ScoreCounterFactory();
+        var gameOverScreenFactory = new GameOverScreenFactory();
 
         this.ballComponent = ballFactory.SpawnBall(new Vector3(0, 17, 1));
         this.cameraComponent = cameraFactory.SpawnCamera(new Vector3(0, 19, 4));
@@ -38,5 +40,8 @@ public class LevelManager : MonoBehaviour
             GameManager.singleton.AddScore(1);
             this.scoreCounterComponent.Increase();
         });
+
+        this.gameOverScreenComponent = gameOver
+
     }
 }

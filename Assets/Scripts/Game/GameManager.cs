@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public int currentStage = 0;
 
-    public GameOverScreen GameOverScreen;
+    public GameOverScreenComponent GameOverScreen;
 
     public static GameManager singleton;
     // Start is called before the first frame update
@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void RestartLevel(){
-        Debug.Log("Game Over");
+        GameOverScreen.Setup();
         singleton.score = 0;
         FindObjectOfType<BallComponent>().ResetBall();
     }
@@ -54,11 +54,6 @@ public class GameManager : MonoBehaviour
     public int GetHighScore()
     {
         return best;
-    }
-
-    public void GameOver()
-    {
-        GameOverScreen.Setup();
     }
 
 }

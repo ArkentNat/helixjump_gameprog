@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameOverScreen : MonoBehaviour
+public class GameOverScreenComponent : MonoBehaviour
 {
     public void Setup()
     {
         gameObject.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void RestartButton()

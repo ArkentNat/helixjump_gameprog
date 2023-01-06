@@ -38,5 +38,6 @@ public class LevelManager : MonoBehaviour
             GameManager.singleton.AddScore(1);
             this.scoreCounterComponent.Increase();
         });
+        
     }
 }

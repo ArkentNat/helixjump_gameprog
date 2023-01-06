@@ -223,6 +223,7 @@ MonoBehaviour:
   cameraPrefab: {fileID: 8243645459782927913, guid: 76ab9a335cc89e84b8bde809636c19ff, type: 3}
   helixPrefab: {fileID: 5999888259074630696, guid: 55722476147018d48a2a22aaf96e891c, type: 3}
   scoreCounterPrefab: {fileID: 8420599999140554224, guid: 7585052fe11c5a6478872230f68539e9, type: 3}
+  gameOverScreenPrefab: {fileID: 6335254636224379892, guid: 8074858f70085834d813dbdaf51ea3d1, type: 3}
 --- !u!4 &644746988
 Transform:
   m_ObjectHideFlags: 0

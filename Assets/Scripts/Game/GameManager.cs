@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,9 +10,7 @@ public class GameManager : MonoBehaviour
     public int score;
 
     public int currentStage = 0;
-
-    public GameOverScreen GameOverScreen;
-
+    
     public static GameManager singleton;
     // Start is called before the first frame update
     void Awake()
@@ -33,18 +33,16 @@ public class GameManager : MonoBehaviour
     }
 
     public void RestartLevel(){
+        
         Debug.Log("Game Over");
         singleton.score = 0;
         FindObjectOfType<BallComponent>().ResetBall();
         FindObjectOfType<HelixComponent>().LoadStage(currentStage);
     }
-
-
-
+    
     public void AddScore (int scoreToAdd) {
         score += scoreToAdd;
-
-
+        
         if(score > best) {  
             best = score;
             PlayerPrefs.SetInt("Highscore", score);
@@ -63,7 +61,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        GameOverScreen.Setup();
+        //GameOverScreen.Setup();
     }
 
 }

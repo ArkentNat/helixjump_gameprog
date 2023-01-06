@@ -9,11 +9,13 @@ public class PrefabResolverUtility : MonoBehaviour
     [SerializeField] private GameObject cameraPrefab;
     [SerializeField] private GameObject helixPrefab;
     [SerializeField] private GameObject scoreCounterPrefab;
+    [SerializeField] private GameObject gameOverScreenPrefab;
 
     private static GameObject ballPrefabStatic;
     private static GameObject cameraPrefabStatic;
     private static GameObject helixPrefabStatic;
     private static GameObject scoreCounterPrefabStatic;
+    private static GameObject gameOverScreenStatic;
 
     private void Awake()
     {
@@ -21,6 +23,7 @@ public class PrefabResolverUtility : MonoBehaviour
         PrefabResolverUtility.cameraPrefabStatic = cameraPrefab;
         PrefabResolverUtility.helixPrefabStatic = helixPrefab;
         PrefabResolverUtility.scoreCounterPrefabStatic = scoreCounterPrefab;
+        PrefabResolverUtility.gameOverScreenStatic = gameOverScreenPrefab;
     }
 
     public static GameObject BallPrefab
@@ -52,6 +55,14 @@ public class PrefabResolverUtility : MonoBehaviour
         get
         {
             return PrefabResolverUtility.scoreCounterPrefabStatic;
+        }
+    }
+    
+    public static GameObject GameOverScreenPrefab
+    {
+        get
+        {
+            return PrefabResolverUtility.gameOverScreenStatic;
         }
     }
 }

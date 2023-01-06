@@ -13,6 +13,8 @@ public class BallComponent : MonoBehaviour
     
     private Subject<Unit> BallCollisionSubject;
     private Vector3 startPos;
+    public int perfectPass = 0;
+    public bool isSuperSpeedActive;
 
     public IObservable<Unit> OnBallCollidedObservable
     {
@@ -49,24 +51,35 @@ public class BallComponent : MonoBehaviour
         //this.BallCollisionSubject.OnNext(Unit.Default);
         if(ignoreNextCollision)
             return; 
-
-        //DeathPart deathPart = other.transform.GetComponent<DeathPart>();
-        //if(deathPart)
-            //deathPart.HitDeathPart();
+        
+        if(isSuperSpeedActive) {
+            if(!other.transform.GetComponent<Goal>()) {
+                Destroy(other.transform.parent.gameObject);
+                Debug.Log("Destroying Platform");
+            }
+        } else {
+            DeathPart deathPart = other.transform.GetComponent<DeathPart>();
+            if(deathPart)
+                deathPart.HitDeathPart();
+        }
         
         rigidBody.velocity = Vector3.zero;
         rigidBody.AddForce(Vector3.up * ballImpulseStrength, ForceMode.Impulse);
 
         ignoreNextCollision = true;
         Invoke("AllowCollision", .2f);
-
-        //Dave F-07
-        // GameManager.singleton.AddScore(1);
-        // Debug.Log(GameManager.singleton.score);
-
         
-        this.BallCollisionSubject.OnNext(Unit.Default);
+        perfectPass = 0;
+        isSuperSpeedActive = false;
 
+        this.BallCollisionSubject.OnNext(Unit.Default);
+    }
+
+    private void Update() {
+        if(perfectPass >= 3 && !isSuperSpeedActive) {
+            isSuperSpeedActive = true;
+            rigidBody.AddForce(Vector3.down * 10, ForceMode.Impulse);
+        }
     }
 
     private void AllowCollision()

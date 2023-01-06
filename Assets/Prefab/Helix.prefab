@@ -2092,7 +2092,6 @@ GameObject:
   - component: {fileID: 5999888259074630703}
   - component: {fileID: 5999888259074630702}
   - component: {fileID: 5999888259074630697}
-  - component: {fileID: 5034777533169103950}
   m_Layer: 0
   m_Name: Helix
   m_TagString: Untagged
@@ -2181,26 +2180,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &5034777533169103950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5999888259074630696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd8c600e567ba064490e7942b2ff3e24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numberOfObstacleLevel: 0
-  topTransform: {fileID: 4759210414644394234}
-  goalTransform: {fileID: 4759210415477767116}
-  helixLevelPrefab: {fileID: 1247495161417033895, guid: b8d0aa267843b42469c71ac97151d4f1, type: 3}
-  allStages:
-  - {fileID: 11400000, guid: c3bc8bfaa5e641b4c9e436febe0eeca8, type: 2}
-  - {fileID: 11400000, guid: b1d05ed200b90314f8922d0dfedb2b00, type: 2}
-  - {fileID: 11400000, guid: c76130b9d8063e74bbba6adb0cd9a58e, type: 2}
 --- !u!1 &6563513472234116434
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class HelixComponent : MonoBehaviour
     
     private float helixDistance;
     private List<HelixLevelComponent> spawnedLevels = new List<HelixLevelComponent>();
-    private List<Stage> allStages = new List<Stage>();
+    public List<Stage> allStages = new List<Stage>();
     
     private Subject<Unit> HelixOnAwakeSubject;
 

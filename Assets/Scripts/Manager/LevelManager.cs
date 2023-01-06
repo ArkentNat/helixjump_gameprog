@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public BallComponent ballComponent;
+    private BallComponent ballComponent;
     private CameraComponent cameraComponent;
     private HelixComponent helixComponent;
     private ScoreCounterComponent scoreCounterComponent;
@@ -46,13 +46,12 @@ public class LevelManager : MonoBehaviour
             this.stageManager.LoadStage(0, this.helixComponent, this.helixLevelComponent);
         });
 
-        this.helixGoalComponent.OnGoalObstacleCollisionObservable.Subscribe((_) =>
-        {
-            GameManager.singleton.currentStage++;
-            this.ballComponent.ResetBall();
-            this.stageManager.LoadStage(GameManager.singleton.currentStage, this.helixComponent, 
-                this.helixLevelComponent);
-        });
+        //this.helixGoalComponent.OnGoalObstacleCollisionObservable.Subscribe((_) =>
+        //{
+            //GameManager.singleton.currentStage++;
+            //this.ballComponent.ResetBall();
+            //this.stageManager.LoadStage(GameManager.singleton.currentStage, this.helixComponent, this.helixLevelComponent);
+        //});
 
 
         this.ballComponent.OnBallCollidedObservable.Subscribe((_) =>

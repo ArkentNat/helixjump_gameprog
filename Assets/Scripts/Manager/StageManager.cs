@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class StageManager : MonoBehaviour
 {
-
-    public void LoadStage(int stageNumber, HelixComponent helixComponent, HelixLevelComponent helixLevelComponent)
+    
+    public void LoadStage(int stageNumber, HelixComponent helixComponent)
     {
+        Debug.Log("Initializing level");
         var helixLevelFactory = new HelixLevelFactory();
         Debug.Log("StageNumber: " + stageNumber);
         Debug.Log("All Stages: " + helixComponent.GetAllStages().Count);
@@ -44,7 +45,8 @@ public class StageManager : MonoBehaviour
         for (int i = 0; i < stage.levels.Count; i++) {
             if (helixComponent.GetSpawnedLevel().Count <= 0)
             {
-                helixLevelComponent = helixLevelFactory.SpawnHelixLevel(helixComponent.transform.position);
+                Debug.Log("Hello");
+                HelixLevelComponent helixLevelComponent = helixLevelFactory.SpawnHelixLevel(helixComponent.transform.position);
                 //GameObject level = Instantiate(helixLevelPrefab, transform);
                 Debug.Log("Levels Spawned");
                 helixLevelComponent.transform.localPosition = new Vector3(0, 17, 0);           
@@ -55,7 +57,7 @@ public class StageManager : MonoBehaviour
             else
             {
                 spawnPosY -= levelDistance;
-                helixLevelComponent = helixLevelFactory.SpawnHelixLevel(helixComponent.transform.position);
+                HelixLevelComponent helixLevelComponent = helixLevelFactory.SpawnHelixLevel(helixComponent.transform.position);
                 //GameObject level = Instantiate(helixLevelPrefab, transform);
                 Debug.Log("Levels Spawned");
                 helixLevelComponent.transform.localPosition = new Vector3(0, spawnPosY, 0);

@@ -40,10 +40,10 @@ public class LevelManager : MonoBehaviour
 
     private void RegisterEvents()
     {
-        this.helixComponent.HelixOnAwakeObservable.Subscribe((_) =>
+        helixComponent.HelixOnAwakeObservable.Subscribe((_) =>
         {
             Debug.Log("Helix is awake");
-            this.stageManager.LoadStage(0, this.helixComponent, this.helixLevelComponent);
+            stageManager.LoadStage(0, helixComponent);
         });
 
         //this.helixGoalComponent.OnGoalObstacleCollisionObservable.Subscribe((_) =>
@@ -63,8 +63,7 @@ public class LevelManager : MonoBehaviour
         GameManager.singleton.OnRestartLevelObservable.Subscribe((_) =>
         {
             this.ballComponent.ResetBall();
-            this.stageManager.LoadStage(GameManager.singleton.currentStage, this.helixComponent,
-                this.helixLevelComponent);
+            this.stageManager.LoadStage(GameManager.singleton.currentStage, this.helixComponent);
         });
     }
     

@@ -31,16 +31,20 @@ public class HelixComponent : MonoBehaviour
     {
         this.HelixOnAwakeSubject = new Subject<Unit>();
     }
-
     
     private void Awake()
     {
         startRotation = transform.localEulerAngles;
         //helixDistance = topTransform.localPosition.y - (goalTransform.localPosition.y + 0.1f);
         Debug.Log("I am awake");
+
+    }
+
+    private void Start()
+    {
         this.HelixOnAwakeSubject.OnNext(Unit.Default);
     }
-    
+
     public void setNumberOfObstacleLevel(float numberOfObstacleLevel)
     {
         this.numberOfObstacleLevel = numberOfObstacleLevel;

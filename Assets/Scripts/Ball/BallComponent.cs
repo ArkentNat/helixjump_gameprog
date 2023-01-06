@@ -53,7 +53,7 @@ public class BallComponent : MonoBehaviour
             return; 
         
         if(isSuperSpeedActive) {
-            if(!other.transform.GetComponent<Goal>()) {
+            if(!other.transform.GetComponent<HelixGoalComponent>()) {
                 Destroy(other.transform.parent.gameObject);
                 Debug.Log("Destroying Platform");
             }

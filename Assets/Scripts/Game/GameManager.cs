@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +12,21 @@ public class GameManager : MonoBehaviour
     public int currentStage = 0;
 
     public GameOverScreen GameOverScreen;
+    
+    private Subject<Unit> RestartLevelSubject;
+
+    public IObservable<Unit> OnRestartLevelObservable
+    {
+        get
+        {
+            return this.RestartLevelSubject.AsObservable();
+        }
+    }
+
+    GameManager()
+    {
+        this.RestartLevelSubject = new Subject<Unit>();
+    }
 
     public static GameManager singleton;
     // Start is called before the first frame update
@@ -25,18 +42,21 @@ public class GameManager : MonoBehaviour
     }
 
     public void NextLevel(){
-        currentStage++;
+        //currentStage++;
         Debug.Log("Current Stage: " + currentStage);
-        FindObjectOfType<BallComponent>().ResetBall();
-        FindObjectOfType<HelixComponent>().LoadStage(currentStage);
+        //FindObjectOfType<BallComponent>().ResetBall();
+        //FindObjectOfType<HelixComponent>().LoadStage(currentStage);
+        //this.GoalReachedSubject.OnNext(Unit.Default);
+        
         Debug.Log("Next Level Called");
     }
 
     public void RestartLevel(){
         Debug.Log("Game Over");
         singleton.score = 0;
-        FindObjectOfType<BallComponent>().ResetBall();
-        FindObjectOfType<HelixComponent>().LoadStage(currentStage);
+        this.RestartLevelSubject.OnNext(Unit.Default);
+        //FindObjectOfType<BallComponent>().ResetBall();
+        //FindObjectOfType<HelixComponent>().LoadStage(currentStage);
     }
 
 

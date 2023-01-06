@@ -10,21 +10,35 @@ public class HelixComponent : MonoBehaviour
     [SerializeField] private float numberOfObstacleLevel = 0f;
     private Vector2 lastTapPosition;
     private Vector3 startRotation;
-
-    public Transform topTransform;
-    public Transform goalTransform;
-    public GameObject helixLevelPrefab;
-
+    
+    public HelixGoalComponent goalComponent;
+    
     private float helixDistance;
-    private List<GameObject> spawnedLevels = new List<GameObject>();
-    public List<Stage> allStages = new List<Stage>();
+    private List<HelixLevelComponent> spawnedLevels = new List<HelixLevelComponent>();
+    private List<Stage> allStages = new List<Stage>();
+    
+    private Subject<Unit> HelixOnAwakeSubject;
 
+    public IObservable<Unit> HelixOnAwakeObservable
+    {
+        get
+        {
+            return this.HelixOnAwakeSubject.AsObservable();
+        }
+    }
 
+    HelixComponent()
+    {
+        this.HelixOnAwakeSubject = new Subject<Unit>();
+    }
+
+    
     private void Awake()
     {
         startRotation = transform.localEulerAngles;
-        helixDistance = topTransform.localPosition.y - (goalTransform.localPosition.y + 0.1f);
-        LoadStage(0);
+        //helixDistance = topTransform.localPosition.y - (goalTransform.localPosition.y + 0.1f);
+        Debug.Log("I am awake");
+        this.HelixOnAwakeSubject.OnNext(Unit.Default);
     }
     
     public void setNumberOfObstacleLevel(float numberOfObstacleLevel)
@@ -56,76 +70,39 @@ public class HelixComponent : MonoBehaviour
         }
     }
 
-    public void LoadStage(int stageNumber) {
-        Debug.Log("StageNumber: " + stageNumber);
-        Debug.Log("All Stages: " + allStages.Count);
-
-        //Debug Line 62 - Video 2:56:00
-        //All Stages not read
-        Stage stage = allStages[Mathf.Clamp(stageNumber, 0, allStages.Count - 1)];
-        Debug.Log("Stages: " + stage);
-        if (stage == null) {
-            Debug.LogError("No stage " + stageNumber + " found in allStages List. Are all stages assigned in the list?");
-            return;
-        }
-
-        // Change Color of background of the stage
-        Camera.main.backgroundColor = allStages[stageNumber].stageBackgroundColor;
-
-        // Change Color of the ball in the stage
-        FindObjectOfType<BallComponent>().GetComponent<Renderer>().material.color = allStages[stageNumber].stageBallColor;
-        
-        // Reset helix rotation
-        transform.localEulerAngles = startRotation;
-
-        // Destroy old levels if there are any
-        foreach (GameObject go in spawnedLevels)
-            Destroy(go);
-
-        float levelDistance = helixDistance / stage.levels.Count;
-        float spawnPosY = topTransform.localPosition.y;
-        
-        Debug.Log("Level Distance: " + levelDistance);
-        Debug.Log("Helix Distance: " + helixDistance);
-        Debug.Log("Stage Levels Count: " + stage.levels.Count);
-
-        for (int i = 0; i < stage.levels.Count; i++) {
-            spawnPosY -= levelDistance;
-            GameObject level = Instantiate(helixLevelPrefab, transform);
-            Debug.Log("Levels Spawned");
-            level.transform.localPosition = new Vector3(0, spawnPosY, 0);
-            spawnedLevels.Add(level);
-
-            int partsToDisable = 12 - stage.levels[i].partCount;
-            List<GameObject> disabledParts = new List<GameObject>();
-
-            while(disabledParts.Count < partsToDisable) {
-                GameObject randomPart = level.transform.GetChild(Random.Range(0, level.transform.childCount)).gameObject;
-            
-                if(!disabledParts.Contains(randomPart)) {
-                    randomPart.SetActive(false);
-                    disabledParts.Add(randomPart);
-                }
-            }
-
-            List<GameObject> leftParts = new List<GameObject>();
-
-            foreach (Transform t in level.transform) {
-                t.GetComponent<Renderer>().material.color = allStages[stageNumber].stageLevelPartColor;
-                if(t.gameObject.activeInHierarchy)
-                    leftParts.Add(t.gameObject);
-            }
-
-            List<GameObject> deathParts = new List<GameObject>();
-
-            while(deathParts.Count < stage.levels[i].deathPartCount) {
-                GameObject randomPart = leftParts[(Random.Range(0, leftParts.Count))];
-                if(!deathParts.Contains(randomPart)) {
-                    randomPart.gameObject.AddComponent<DeathPart>();
-                    deathParts.Add(randomPart);
-                }
-            }
-
-        }
+    public float GetHelixDistance()
+    {
+        return this.helixDistance;
     }
+
+    public void SetHelixDistance(float distance)
+    {
+        this.helixDistance = distance;
+    }
+    public Vector3 GetStartRotation()
+    {
+        return this.startRotation;
+    }
+
+    public List<HelixLevelComponent> GetSpawnedLevel()
+    {
+        return this.spawnedLevels;
+    }
+
+    public void AddSpawnedLevel(HelixLevelComponent helixLevelComponent)
+    {
+        this.spawnedLevels.Add(helixLevelComponent);
+    }
+
+    public List<Stage> GetAllStages()
+    {
+        return this.allStages;
+    }
+
+    public void SetStages(List<Stage> stages)
+    {
+        this.allStages = stages;
+    }
+
+    
 }
